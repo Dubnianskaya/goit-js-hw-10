@@ -1,0 +1,19 @@
+<div class="country-card">
+<div class="country-name--wraper">
+    <img src="{{flags.svg}}" alt="{{name.official}} width="50px" height=40px"">
+    <h2 class="country-name">{{name.official}}</h2>
+</div>
+<div class="country-description">
+    <p class="country-text">Capital:&nbsp;<span class="country-text--result">{{capital}}</span></p>
+    <p class="country-text">Population:&nbsp;<span class="country-text--result">{{population}}</span></p>
+    <ul class="languages-list list">Languages:&nbsp;
+        {{#each languages}}
+        {{#if @last}}
+        <li class="languages-list--item">{{this}}</li>
+        {{else}}
+        <li class="languages-list--item">{{this}},</li>
+        {{/if}}
+        {{/each}}
+    </ul>
+</div>
+</div>
