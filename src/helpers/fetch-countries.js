@@ -14,7 +14,7 @@ export function clearList(){
     return refs.countryList.innerHTML = "";
 }
 export function fetchCountries(name) {
-    return fetch(`https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages`)
+    return fetch(`https://restcountries.com/v2/name/${name}?fields=name,capital,population,flags,languages`)
     .then(response => {
         if(!response.ok) {
             throw new Error(response.status);
@@ -24,7 +24,7 @@ export function fetchCountries(name) {
     .then(country => {
         if(country.length > 10) {
             Notiflix.Notify.info("Too many matches found. Please enter a more specific name.")
-        } else if(country.length > 1) {
+        } else if(country.length >=2 && country.length <= 10) {
             const countries = country.map(countryItem => {
                 return countryListTpl(countryItem);
             })
